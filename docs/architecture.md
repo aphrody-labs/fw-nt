@@ -16,7 +16,7 @@ tested unit, LiberNT first rules apply (provide every symbol of the new implemen
 | Kernel core (Ke, HAL, trap, MMU) | C++23 MSVC `/kernel`, C23, assembly | LiberNT `ntos/ke`, `hal/`; Asterinas OSTD (model) | framekernel: only this core holds `unsafe`/raw hardware access |
 | Kernel services (Mm, Cc, Io, Ob, Ps, Se) | Rust `no_std` on the core, C++ where LiberNT already has clean-room NT10 code | LiberNT `ntos/mm` (NVS), `ntos/cc` | Asterinas service split, NT object semantics |
 | Drivers (KMDF/UMDF, WDDM, storage, net) | Rust (windows-drivers-rs, cargo-wdk), C++ MSVC | windows-drivers-rs, LiberNT `drivers/` | WDK headers from the Windows SDK/WDK |
-| Graphics kernel + composition | C++ MSVC | LiberNT `dxgkrnl`, `dwm`; DirectX-Headers | D3D11/D3D12 user-mode drivers |
+| Graphics kernel + composition | C++ MSVC | LiberNT `drivers/directx/dxgkrnl`, `base/system/dwm`; DirectX-Headers | D3D11/D3D12 user-mode drivers |
 | D3D11/D3D12 runtime on Vulkan GPUs | C/C++ | dxvk, vkd3d-proton, DirectXShaderCompiler, DirectXTK12 | path for GPUs without a native WDDM driver |
 | WebGPU / 2D | Rust, C++ | wgpu, dawn, skia | wgpu for Rust services, Dawn + Skia for the compositor and web |
 | Linux GUI subsystem | C, C++ | weston-mirror, wslg, FreeRDP via IronRDP | Wayland/X11 apps over RDP as in WSLg |

@@ -16,6 +16,19 @@ const run = (cmd: string[], cwd = root) => {
 };
 const owner = run(["gh", "repo", "view", "--json", "owner", "-q", ".owner.login"]).out || "aphrody-labs";
 
+// The manifest and .gitmodules must agree on path, relative URL and branch of every fork (local, no network).
+let drift = 0;
+for (const f of forks) {
+  const key = `submodule.third_party/${f.name}`;
+  const get = (k: string) => run(["git", "config", "-f", ".gitmodules", "--get", `${key}.${k}`]).out;
+  const want = { url: `../${f.name}.git`, branch: f.branch };
+  for (const [k, v] of Object.entries(want)) if (get(k) !== v) {
+    drift++;
+    console.log(`DRIFT .gitmodules ${key}.${k} = ${get(k) || "(unset)"}, forks.toml says ${v}`);
+  }
+}
+if (check && drift) process.exitCode = 1;
+
 // --ensure: every fork exists in the org (created from its upstream, unarchived) and has its shallow submodule.
 if (process.argv.includes("--ensure")) {
   for (const f of forks) {
