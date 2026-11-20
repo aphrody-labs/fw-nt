@@ -1,0 +1,36 @@
+[submodule "third_party/PowerShell"]
+	path = third_party/PowerShell
+	url = ../PowerShell.git
+	shallow = true
+[submodule "third_party/intelligent-terminal"]
+	path = third_party/intelligent-terminal
+	url = ../intelligent-terminal.git
+	shallow = true
+[submodule "third_party/windows-rs"]
+	path = third_party/windows-rs
+	url = ../windows-rs.git
+	shallow = true
+[submodule "third_party/node-api-dotnet"]
+	path = third_party/node-api-dotnet
+	url = ../node-api-dotnet.git
+	shallow = true
+[submodule "third_party/IronRDP"]
+	path = third_party/IronRDP
+	url = ../IronRDP.git
+	shallow = true
+[submodule "third_party/agent-desktop"]
+	path = third_party/agent-desktop
+	url = ../agent-desktop.git
+	shallow = true
+[submodule "third_party/dotnet"]
+	path = third_party/dotnet
+	url = ../dotnet.git
+	shallow = true
+[submodule "third_party/LiberNT"]
+	path = third_party/LiberNT
+	url = ../LiberNT.git
+	shallow = true
+[submodule "third_party/windows-drivers-rs"]
+	path = third_party/windows-drivers-rs
+	url = ../windows-drivers-rs.git
+	shallow = true

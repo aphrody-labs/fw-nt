@@ -1,0 +1,19 @@
+# Toolchains fw-nt builds with. Minimums only; the installed versions are discovered live by `bun tools/toolchain.ts`.
+
+[msvc]          # C++23 / C17-C23, kernel (/kernel) and user mode; ml64/armasm64 for assembly
+min = "14.50"
+[windows_sdk]   # Windows SDK + WDK headers (km/, wdf/)
+min = "10.0.26100.0"
+[dotnet]        # .NET 10 LTS and .NET 11, NativeAOT for system services and the managed shell
+min = ["10.0", "11.0"]
+[rust]          # native user mode, drivers (windows-drivers-rs), UEFI boot, wasm components
+min = "1.95.0"
+targets = ["x86_64-pc-windows-msvc", "aarch64-pc-windows-msvc", "x86_64-unknown-uefi", "aarch64-unknown-uefi", "wasm32-wasip2"]
+[bun]           # agent runtime, tooling, Node-API bridge to .NET (node-api-dotnet)
+min = "1.3.0"
+[clang]         # clang-cl for cross-checking MSVC builds and wasm32 C/C++
+min = "20.0"
+[cmake]         # LiberNT and native C/C++ builds (Ninja generator)
+min = "4.0"
+[ninja]
+min = "1.12"

@@ -1,0 +1,37 @@
+name: Sync forks
+
+# Fast-forwards every fork of forks.toml from its upstream and bumps the third_party gitlinks from `git ls-remote`
+# (no submodule clone). Commits straight to main.
+on:
+  schedule:
+    - cron: "41 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fw-nt-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      # merge-upstream on the forks needs a token with contents:write on the aphrody-labs forks.
+      GH_TOKEN: ${{ secrets.FORKS_TOKEN || secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun tools/sync.ts
+      - name: Commit gitlinks to main
+        run: |
+          if git diff --cached --quiet -- third_party; then
+            echo "gitlinks unchanged"
+            exit 0
+          fi
+          git config user.name "fw-nt-sync"
+          git config user.email "fw-nt-sync@users.noreply.github.com"
+          git commit -m "chore: bump forks to upstream heads"
+          git pull --rebase origin main
+          git push origin HEAD:main

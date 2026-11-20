@@ -1,0 +1,66 @@
+# Single manifest of the fw-nt forks. Each fork lives in aphrody-labs/<name> and is a shallow submodule under third_party/<name>
+# with a relative URL (../<name>.git). `bun tools/sync.ts` fast-forwards every fork from its upstream and bumps the gitlinks
+# from `git ls-remote` (no clone), locally and in CI.
+
+[[fork]]
+name = "PowerShell"
+upstream = "PowerShell/PowerShell"
+branch = "master"
+lang = "C#"
+role = "pwsh: the shell and automation runtime of the NT layer"
+
+[[fork]]
+name = "intelligent-terminal"
+upstream = "microsoft/intelligent-terminal"
+branch = "main"
+lang = "C++"
+role = "Windows Terminal fork with native ACP agent panes (Claude, Copilot, Antigravity)"
+
+[[fork]]
+name = "windows-rs"
+upstream = "microsoft/windows-rs"
+branch = "master"
+lang = "Rust"
+role = "Rust projection of Win32, COM and WinRT"
+
+[[fork]]
+name = "node-api-dotnet"
+upstream = "microsoft/node-api-dotnet"
+branch = "main"
+lang = "C#"
+role = "Node-API bridge between JavaScript runtimes (Node, Bun) and .NET"
+
+[[fork]]
+name = "dotnet"
+upstream = "dotnet/dotnet"
+branch = "main"
+lang = "C#"
+role = ".NET virtual monolithic repository (runtime, SDK, ASP.NET Core, Roslyn) built from source"
+
+[[fork]]
+name = "IronRDP"
+upstream = "Devolutions/IronRDP"
+branch = "master"
+lang = "Rust"
+role = "Rust RDP client, server and protocol stack (remote desktop for agents)"
+
+[[fork]]
+name = "agent-desktop"
+upstream = "vercel-labs/agent-desktop"
+branch = "main"
+lang = "TypeScript"
+role = "Computer-use CLI for AI agents driving the desktop"
+
+[[fork]]
+name = "LiberNT"
+upstream = "LiberNT/LiberNT"
+branch = "master"
+lang = "C"
+role = "NT base: ReactOS-derived NT10 kernel (NVS memory manager, clean-room Cc, WDDM, ARM64/RISC-V64), the reference fw-nt replaces layer by layer"
+
+[[fork]]
+name = "windows-drivers-rs"
+upstream = "microsoft/windows-drivers-rs"
+branch = "main"
+lang = "Rust"
+role = "WDK bindings and cargo-wdk for native Rust kernel and user-mode drivers"
