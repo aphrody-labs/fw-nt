@@ -1,6 +1,7 @@
 # Single manifest of the fw-nt forks. Each fork lives in aphrody-labs/<name> and is a shallow submodule under third_party/<name>
 # with a relative URL (../<name>.git). `bun tools/sync.ts` fast-forwards every fork from its upstream and bumps the gitlinks
-# from `git ls-remote` (no clone), locally and in CI.
+# from `git ls-remote` (no clone), locally and in CI. A fork with `patched` and `patches` carries a patch queue: its `patched`
+# branch is generated (`branch` plus the series of its `patches` branch, tools/patchq.ts) and is what the gitlink pins.
 
 [[fork]]
 name = "PowerShell"
@@ -181,8 +182,10 @@ role = "Rust VMM and OpenHCL paravisor: virtualization layer"
 name = "kiri"
 upstream = "libracoder/kiri"
 branch = "main"
+patched = "aphrody"
+patches = "patches"
 lang = "Rust"
-role = "Small fast container runtime for Windows, macOS, Linux"
+role = "Small fast container runtime for Windows, macOS, Linux; the fleet container engine, installed from the fork releases"
 
 [[fork]]
 name = "rio"

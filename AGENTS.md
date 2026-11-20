@@ -7,7 +7,8 @@ projection, the .NET runtime and its JavaScript bridge, remote desktop and deskt
 - `forks.toml`: the single manifest of the forks (name, upstream, branch, language, role).
 - `third_party/<name>`: one shallow submodule per fork, URL `../<name>.git` (relative to `aphrody-labs`), one checkout each.
 - `tools/sync.ts`: fast-forwards each fork from its upstream and bumps the gitlinks; `--check` reports drift.
-- `.github/workflows/sync.yml`: the same sync every 6 hours, committing to `main`.
+- `tools/patchq.ts`: patch queue of a fork with `patched`/`patches` in `forks.toml` (kiri): the generated branch is the fork `main` plus the series of its `patches` branch (`git am --3way`). A patch that applies in reverse is reported merged; any other failure keeps the last good head and gitlink, opens one issue and fails the run.
+- `.github/workflows/sync.yml`: the same sync every 6 hours (App token), committing to `main`.
 
 ## Rules
 - Assemble first: patches go into the fork (`aphrody-labs/<name>`), never copied into this tree.

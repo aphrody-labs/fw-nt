@@ -1,7 +1,8 @@
 name: Sync forks
 
-# Fast-forwards every fork of forks.toml from its upstream and bumps the third_party gitlinks from `git ls-remote`
-# (no submodule clone). Commits straight to main.
+# Fast-forwards every fork of forks.toml from its upstream, rebuilds the generated branch of the patched forks (main + series,
+# tools/patchq.ts) and bumps the third_party gitlinks from `git ls-remote` (no submodule clone). Commits straight to main.
+# A patch that no longer applies fails the run (red), opens one issue and leaves the generated branch and its gitlink at the last good head.
 on:
   schedule:
     - cron: "41 */6 * * *"
@@ -9,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: fw-nt-sync
@@ -17,15 +19,28 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    env:
-      # merge-upstream on the forks needs a token with contents:write on the aphrody-labs forks.
-      GH_TOKEN: ${{ secrets.FORKS_TOKEN || secrets.GITHUB_TOKEN }}
     steps:
+      # The aphrody App installation reaches every aphrody-labs fork: merge-upstream and the push of generated branches
+      # need it (GITHUB_TOKEN is scoped to this repository, and its pushes start no workflow in the fork).
+      - id: app
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.APHRODY_APP_CLIENT_ID }}
+          private-key: ${{ secrets.APHRODY_APP_KEY }}
+          owner: ${{ github.repository_owner }}
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
+      - run: bun test ./tools/
       - run: bun tools/sync.ts
-      - run: bun tools/watch.ts
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+      # Runs after a failed sync too: the other gitlinks still move; the job stays red through the failed step.
+      - if: ${{ !cancelled() }}
+        run: bun tools/watch.ts
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
       - name: Commit gitlinks and activity to main
+        if: ${{ !cancelled() }}
         run: |
           git add -- docs/activity
           if git diff --cached --quiet -- third_party docs/activity; then

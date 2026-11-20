@@ -126,7 +126,7 @@
 [submodule "third_party/kiri"]
 	path = third_party/kiri
 	url = ../kiri.git
-	branch = main
+	branch = aphrody
 	shallow = true
 [submodule "third_party/niubash"]
 	path = third_party/niubash
