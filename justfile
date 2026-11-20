@@ -21,4 +21,4 @@ init:
     git submodule update --init --depth 1
 
 test:
-    bun test tools/
+    bun test ./tools/
