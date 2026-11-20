@@ -64,3 +64,178 @@ upstream = "microsoft/windows-drivers-rs"
 branch = "main"
 lang = "Rust"
 role = "WDK bindings and cargo-wdk for native Rust kernel and user-mode drivers"
+
+[[fork]]
+name = "DirectX-Headers"
+upstream = "microsoft/DirectX-Headers"
+branch = "main"
+lang = "C"
+role = "D3D11/D3D12 and DXGI headers, the API contract of the NT graphics stack"
+
+[[fork]]
+name = "DirectXShaderCompiler"
+upstream = "microsoft/DirectXShaderCompiler"
+branch = "main"
+lang = "C++"
+role = "HLSL to DXIL/SPIR-V compiler (LLVM/Clang based)"
+
+[[fork]]
+name = "DirectXTK12"
+upstream = "microsoft/DirectXTK12"
+branch = "main"
+lang = "C++"
+role = "DirectX 12 helper toolkit, reference D3D12 usage"
+
+[[fork]]
+name = "dxvk"
+upstream = "doitsujin/dxvk"
+branch = "master"
+lang = "C++"
+role = "D3D8-11 on Vulkan: D3D11 path for GPUs without a native NT driver"
+
+[[fork]]
+name = "vkd3d-proton"
+upstream = "HansKristian-Work/vkd3d-proton"
+branch = "master"
+lang = "C"
+role = "D3D12 on Vulkan"
+
+[[fork]]
+name = "wgpu"
+upstream = "gfx-rs/wgpu"
+branch = "trunk"
+lang = "Rust"
+role = "Rust WebGPU over D3D12/Vulkan/Metal: safe native GPU API for Rust services"
+
+[[fork]]
+name = "dawn"
+upstream = "google/dawn"
+branch = "main"
+lang = "C++"
+role = "C++ WebGPU implementation (Chromium), D3D11/D3D12/Vulkan backends"
+
+[[fork]]
+name = "skia"
+upstream = "google/skia"
+branch = "main"
+lang = "C++"
+role = "2D graphics: text, paths, images on GPU; compositor and UI rendering"
+
+[[fork]]
+name = "weston-mirror"
+upstream = "microsoft/weston-mirror"
+branch = "working"
+lang = "C"
+role = "Weston compositor as patched for WSLg (RDP backend, RAIL)"
+
+[[fork]]
+name = "wslg"
+upstream = "microsoft/wslg"
+branch = "main"
+lang = "C++"
+role = "Wayland/X11 apps on Windows through Weston + RDP: Linux GUI subsystem model"
+
+[[fork]]
+name = "microsoft-ui-xaml"
+upstream = "microsoft/microsoft-ui-xaml"
+branch = "main"
+lang = "C++"
+role = "WinUI 3: native XAML UI framework, base of the desktop shell"
+
+[[fork]]
+name = "WindowsAppSDK"
+upstream = "microsoft/WindowsAppSDK"
+branch = "main"
+lang = "C++"
+role = "Windows App SDK: app model, windowing, lifecycle, packaging"
+
+[[fork]]
+name = "fluentui"
+upstream = "microsoft/fluentui"
+branch = "master"
+lang = "TypeScript"
+role = "Fluent UI design system (web components, React)"
+
+[[fork]]
+name = "fluentui-system-icons"
+upstream = "microsoft/fluentui-system-icons"
+branch = "main"
+lang = "HTML"
+role = "Fluent system icons"
+
+[[fork]]
+name = "react-native-windows"
+upstream = "microsoft/react-native-windows"
+branch = "main"
+lang = "C++"
+role = "React Native for Windows (Fabric, native modules)"
+
+[[fork]]
+name = "openvmm"
+upstream = "microsoft/openvmm"
+branch = "main"
+lang = "Rust"
+role = "Rust VMM and OpenHCL paravisor: virtualization layer"
+
+[[fork]]
+name = "kiri"
+upstream = "libracoder/kiri"
+branch = "main"
+lang = "Rust"
+role = "Small fast container runtime for Windows, macOS, Linux"
+
+[[fork]]
+name = "niubash"
+upstream = "unixwin/niubash"
+branch = "master"
+lang = "Rust"
+role = "Bash-compatible native Windows shell (no WSL/MSYS)"
+
+[[fork]]
+name = "rubash"
+upstream = "unixwin/rubash"
+branch = "master"
+lang = "Rust"
+role = "GNU Bash 5.3 compatible shell engine in Rust, embeddable"
+
+[[fork]]
+name = "ruline"
+upstream = "unixwin/ruline"
+branch = "main"
+lang = "Rust"
+role = "GNU readline-compatible line editor (reedline derived)"
+
+[[fork]]
+name = "WinuxCmd"
+upstream = "unixwin/WinuxCmd"
+branch = "main"
+lang = "C++"
+role = "Native Windows implementation of Linux commands"
+
+[[fork]]
+name = "niu-git"
+upstream = "unixwin/niu-git"
+branch = "master"
+lang = "Python"
+role = "Native Windows Git build without MSYS (MSVC + schannel)"
+
+[[fork]]
+name = "asterinas"
+upstream = "asterinas/asterinas"
+branch = "main"
+lang = "Rust"
+role = "Framekernel reference: small unsafe OSTD core, safe Rust services; design model for the fw-nt kernel"
+
+[[fork]]
+name = "wine-cachyos"
+upstream = "CachyOS/wine-cachyos"
+branch = "proton_9.0"
+lang = "C"
+role = "CachyOS Wine: Win32 API reimplementation, cross-check for NT userland"
+
+[[fork]]
+name = "proton-cachyos"
+upstream = "CachyOS/proton-cachyos"
+branch = "cachyos_main"
+lang = ""
+role = "CachyOS Proton: Wine + DXVK + vkd3d-proton integration"

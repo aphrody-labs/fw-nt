@@ -1,19 +1,16 @@
 # fw-nt
 
-Windows NT layer of [fw](https://github.com/aphrody-labs/fw): one monorepo assembling the forks that make Windows an agent desktop.
+A complete free NT operating system around [fw](https://github.com/aphrody-labs/fw), in the spirit of
+[LiberNT](https://github.com/LiberNT/LiberNT) and built on the [Asterinas](https://github.com/asterinas/asterinas) framekernel model:
+native C++ on MSVC, modern C and assembly, Rust, .NET 10/11, Bun, and WebAssembly where isolation pays.
 
-| Fork | Upstream | Language | Role |
-|---|---|---|---|
-| [PowerShell](https://github.com/aphrody-labs/PowerShell) | PowerShell/PowerShell | C# | shell and automation runtime |
-| [intelligent-terminal](https://github.com/aphrody-labs/intelligent-terminal) | microsoft/intelligent-terminal | C++ | Windows Terminal with ACP agent panes |
-| [windows-rs](https://github.com/aphrody-labs/windows-rs) | microsoft/windows-rs | Rust | Win32, COM, WinRT projection |
-| [node-api-dotnet](https://github.com/aphrody-labs/node-api-dotnet) | microsoft/node-api-dotnet | C# | Node-API bridge between JS runtimes and .NET |
-| [dotnet](https://github.com/aphrody-labs/dotnet) | dotnet/dotnet | C# | .NET VMR, built from source |
-| [IronRDP](https://github.com/aphrody-labs/IronRDP) | Devolutions/IronRDP | Rust | RDP client, server and protocol |
-| [agent-desktop](https://github.com/aphrody-labs/agent-desktop) | vercel-labs/agent-desktop | TypeScript | computer-use CLI for agents |
+- Architecture and layer map: [docs/architecture.md](docs/architecture.md)
+- Forks (one shallow submodule each under `third_party/`): [forks.toml](forks.toml)
+- Live upstream activity (issues, PRs, discussions, releases): [docs/activity/](docs/activity/)
 
 ```sh
 git clone --recurse-submodules --shallow-submodules https://github.com/aphrody-labs/fw-nt.git
-just sync    # fast-forward forks from upstream and bump gitlinks
-just check   # drift report
+just doctor  # toolchains: MSVC, Windows SDK, .NET 10/11, Rust targets, Bun, clang, CMake, Ninja
+just sync    # forks fast-forwarded from upstream, gitlinks bumped
+just watch   # upstream activity snapshot
 ```

@@ -24,14 +24,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun tools/sync.ts
-      - name: Commit gitlinks to main
+      - run: bun tools/watch.ts
+      - name: Commit gitlinks and activity to main
         run: |
-          if git diff --cached --quiet -- third_party; then
-            echo "gitlinks unchanged"
+          git add -- docs/activity
+          if git diff --cached --quiet -- third_party docs/activity; then
+            echo "nothing moved"
             exit 0
           fi
           git config user.name "fw-nt-sync"
           git config user.email "fw-nt-sync@users.noreply.github.com"
-          git commit -m "chore: bump forks to upstream heads"
+          git commit -m "chore: bump forks to upstream heads and refresh upstream activity"
           git pull --rebase origin main
           git push origin HEAD:main

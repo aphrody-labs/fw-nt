@@ -34,3 +34,128 @@
 	path = third_party/windows-drivers-rs
 	url = ../windows-drivers-rs.git
 	shallow = true
+[submodule "third_party/DirectX-Headers"]
+	path = third_party/DirectX-Headers
+	url = ../DirectX-Headers.git
+	branch = main
+	shallow = true
+[submodule "third_party/DirectXShaderCompiler"]
+	path = third_party/DirectXShaderCompiler
+	url = ../DirectXShaderCompiler.git
+	branch = main
+	shallow = true
+[submodule "third_party/DirectXTK12"]
+	path = third_party/DirectXTK12
+	url = ../DirectXTK12.git
+	branch = main
+	shallow = true
+[submodule "third_party/dxvk"]
+	path = third_party/dxvk
+	url = ../dxvk.git
+	branch = master
+	shallow = true
+[submodule "third_party/vkd3d-proton"]
+	path = third_party/vkd3d-proton
+	url = ../vkd3d-proton.git
+	branch = master
+	shallow = true
+[submodule "third_party/wgpu"]
+	path = third_party/wgpu
+	url = ../wgpu.git
+	branch = trunk
+	shallow = true
+[submodule "third_party/dawn"]
+	path = third_party/dawn
+	url = ../dawn.git
+	branch = main
+	shallow = true
+[submodule "third_party/skia"]
+	path = third_party/skia
+	url = ../skia.git
+	branch = main
+	shallow = true
+[submodule "third_party/weston-mirror"]
+	path = third_party/weston-mirror
+	url = ../weston-mirror.git
+	branch = working
+	shallow = true
+[submodule "third_party/wslg"]
+	path = third_party/wslg
+	url = ../wslg.git
+	branch = main
+	shallow = true
+[submodule "third_party/microsoft-ui-xaml"]
+	path = third_party/microsoft-ui-xaml
+	url = ../microsoft-ui-xaml.git
+	branch = main
+	shallow = true
+[submodule "third_party/WindowsAppSDK"]
+	path = third_party/WindowsAppSDK
+	url = ../WindowsAppSDK.git
+	branch = main
+	shallow = true
+[submodule "third_party/fluentui"]
+	path = third_party/fluentui
+	url = ../fluentui.git
+	branch = master
+	shallow = true
+[submodule "third_party/fluentui-system-icons"]
+	path = third_party/fluentui-system-icons
+	url = ../fluentui-system-icons.git
+	branch = main
+	shallow = true
+[submodule "third_party/react-native-windows"]
+	path = third_party/react-native-windows
+	url = ../react-native-windows.git
+	branch = main
+	shallow = true
+[submodule "third_party/openvmm"]
+	path = third_party/openvmm
+	url = ../openvmm.git
+	branch = main
+	shallow = true
+[submodule "third_party/kiri"]
+	path = third_party/kiri
+	url = ../kiri.git
+	branch = main
+	shallow = true
+[submodule "third_party/niubash"]
+	path = third_party/niubash
+	url = ../niubash.git
+	branch = master
+	shallow = true
+[submodule "third_party/rubash"]
+	path = third_party/rubash
+	url = ../rubash.git
+	branch = master
+	shallow = true
+[submodule "third_party/ruline"]
+	path = third_party/ruline
+	url = ../ruline.git
+	branch = main
+	shallow = true
+[submodule "third_party/WinuxCmd"]
+	path = third_party/WinuxCmd
+	url = ../WinuxCmd.git
+	branch = main
+	shallow = true
+[submodule "third_party/niu-git"]
+	path = third_party/niu-git
+	url = ../niu-git.git
+	branch = master
+	shallow = true
+[submodule "third_party/asterinas"]
+	path = third_party/asterinas
+	url = ../asterinas.git
+	branch = main
+	shallow = true
+[submodule "third_party/wine-cachyos"]
+	path = third_party/wine-cachyos
+	url = ../wine-cachyos.git
+	branch = proton_9.0
+	shallow = true
+[submodule "third_party/proton-cachyos"]
+	path = third_party/proton-cachyos
+	url = ../proton-cachyos.git
+	branch = cachyos_main
+	shallow = true

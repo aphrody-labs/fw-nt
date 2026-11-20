@@ -16,6 +16,28 @@ const run = (cmd: string[], cwd = root) => {
 };
 const owner = run(["gh", "repo", "view", "--json", "owner", "-q", ".owner.login"]).out || "aphrody-labs";
 
+// --ensure: every fork exists in the org (created from its upstream, unarchived) and has its shallow submodule.
+if (process.argv.includes("--ensure")) {
+  for (const f of forks) {
+    const repo = `${owner}/${f.name}`;
+    const info = run(["gh", "api", `repos/${repo}`, "--jq", "[.fork, .archived, (.parent.full_name // \"\")] | @tsv"]);
+    if (!info.ok) {
+      const r = run(["gh", "repo", "fork", f.upstream, "--org", owner, "--fork-name", f.name, "--clone=false", "--default-branch-only"]);
+      console.log(`fork  ${repo} <- ${f.upstream}: ${r.ok ? "created" : r.err.split("\n").at(-1)}`);
+    } else {
+      const [, archived, parent] = info.out.split("\t");
+      if (parent && parent.toLowerCase() !== f.upstream.toLowerCase()) console.log(`WARN  ${repo} parent is ${parent}, manifest says ${f.upstream}`);
+      if (archived === "true") console.log(`unarchive ${repo}: ${run(["gh", "repo", "unarchive", repo, "--yes"]).ok ? "ok" : "failed"}`);
+    }
+    const path = `third_party/${f.name}`;
+    if (!run(["git", "ls-files", "-s", "--", path]).out) {
+      const r = run(["git", "submodule", "add", "--depth", "1", "-b", f.branch, `../${f.name}.git`, path]);
+      run(["git", "config", "-f", ".gitmodules", `submodule.${path}.shallow`, "true"]);
+      console.log(`submodule ${path}: ${r.ok ? "added" : r.err.split("\n").at(-1)}`);
+    }
+  }
+}
+
 let stale = 0;
 const rows = await Promise.all(
   forks.map(async (f) => {
@@ -23,7 +45,12 @@ const rows = await Promise.all(
     let sync = "skipped";
     if (!check) {
       const r = run(["gh", "repo", "sync", repo, "--branch", f.branch]);
-      sync = r.ok ? "synced" : `sync failed: ${r.err.split("\n").at(-1)}`;
+      if (r.ok) sync = "synced";
+      else {
+        // Fork carries its own patches: let GitHub merge upstream in (merge commit); a conflict stays reported as drift.
+        const m = run(["gh", "api", "-X", "POST", `repos/${repo}/merge-upstream`, "-f", `branch=${f.branch}`, "--jq", ".merge_type"]);
+        sync = m.ok ? `merged (${m.out})` : `diverged, merge conflict: patches in ${repo} need a manual rebase`;
+      }
     }
     const cmp = run(["gh", "api", `repos/${repo}/compare/${f.branch}...${f.upstream.split("/")[0]}:${f.branch}`, "--jq", ".ahead_by"]);
     const behind = Number(cmp.out || "0");
