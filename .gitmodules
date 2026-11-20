@@ -168,3 +168,8 @@
 	url = ../proton-cachyos.git
 	branch = cachyos_main
 	shallow = true
+[submodule "third_party/rio"]
+	path = third_party/rio
+	url = ../rio.git
+	branch = main
+	shallow = true

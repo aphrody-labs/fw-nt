@@ -185,6 +185,13 @@ lang = "Rust"
 role = "Small fast container runtime for Windows, macOS, Linux"
 
 [[fork]]
+name = "rio"
+upstream = "raphamorim/rio"
+branch = "main"
+lang = "Rust"
+role = "GPU terminal (WebGPU Sugarloaf renderer, rio-vt parser) beside the Intelligent Terminal"
+
+[[fork]]
 name = "niubash"
 upstream = "unixwin/niubash"
 branch = "master"
