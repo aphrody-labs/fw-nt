@@ -1,10 +1,13 @@
 repo	pushed	stars	forks	open_issues	open_prs	discussions	latest_release	release_date	archived
-microsoft/vcpkg	2026-11-20	27628	7820	791	273	1676	2026.10.16	2026-10-20	false
+microsoft/junco	2026-11-20	1	1	0	0	0	-	-	false
+microsoft/dcp	2026-11-20	196	30	55	22	0	v0.27.5	2026-11-20	false
+microsoft/apm	2026-11-20	4424	431	245	105	32	v0.36.1	2026-11-18	false
+microsoft/garnet	2026-11-20	12093	725	41	44	112	v2.2.13	2026-11-16	false
+microsoft/qdk-chemistry	2026-11-20	80	41	35	35	3	v2.3.0	2026-10-26	false
+microsoft/vcpkg	2026-11-20	27628	7820	792	273	1676	2026.10.16	2026-10-20	false
 microsoft/nvx	2026-11-20	857	66	98	14	0	-	-	false
-microsoft/apm	2026-11-20	4423	431	244	104	32	v0.36.1	2026-11-18	false
 microsoft/microsoft-ui-xaml	2026-11-20	8620	970	2239	301	650	winui3/release/2.7.0	2026-11-17	false
 microsoft/winappCli	2026-11-20	1390	99	116	18	0	v0.8.0	2026-11-07	false
-microsoft/garnet	2026-11-20	12093	725	41	44	112	v2.2.13	2026-11-16	false
 microsoft/waza	2026-11-20	1516	104	51	4	0	azd-ext-microsoft-azd-waza_0.41.0	2026-11-13	false
 microsoft/vscode-common-python-lsp	2026-11-20	2	3	4	1	0	v0.8.3	2026-10-16	false
 microsoft/aspire.dev	2026-11-20	208	100	66	43	1	-	-	false
@@ -16,7 +19,6 @@ microsoft/PackageUploader	2026-11-20	69	19	7	7	0	v3.2.10	2026-11-03	false
 microsoft/aspire-samples	2026-11-20	1201	348	88	41	0	-	-	false
 microsoft/mxc	2026-11-20	3170	183	170	24	0	v1.1.0	2026-11-15	false
 microsoft/PyRIT	2026-11-20	4988	1091	128	167	12	v1.2.1	2026-11-18	false
-microsoft/junco	2026-11-20	1	1	0	0	0	-	-	false
 microsoft/microsoft-ui-reactor	2026-11-20	925	70	59	20	22	-	-	false
 microsoft/TypeScript	2026-11-20	111869	14695	4957	307	0	v7.0.2	2026-08-20	false
 microsoft/trident	2026-11-20	32	17	17	88	1	v0.30.0	2026-10-23	false
@@ -25,13 +27,12 @@ microsoft/aspire	2026-11-20	6442	1040	2225	381	909	v17.0.0	2026-11-18	false
 microsoft/vscode-python	2026-11-20	4656	1381	344	54	572	v2026.10.0	2026-10-14	false
 microsoft/mscclpp	2026-11-20	576	115	5	31	0	v0.10.0	2026-07-22	false
 microsoft/terminal	2026-11-20	105462	9757	1693	90	627	v1.25.3131.0	2026-11-11	false
-microsoft/winget-pkgs	2026-11-20	11347	12874	1364	5703	422	-	-	false
+microsoft/winget-pkgs	2026-11-20	11347	12874	1364	5705	422	-	-	false
 microsoft/kata-containers	2026-11-20	95	47	0	16	0	4.1.0.kata3	2026-11-18	false
 microsoft/vscode-copilotstudio	2026-11-20	118	21	27	14	5	v1.10.19	2026-11-16	false
 microsoft/mssql-rs	2026-11-20	65	18	37	40	0	-	-	false
 microsoft/rust-mqtt-client	2026-11-20	6	6	9	7	0	v0.1.1	2026-11-11	false
 microsoft/PilotSwarm	2026-11-20	19	13	94	62	0	v0.8.12	2026-11-16	false
-microsoft/qdk-chemistry	2026-11-20	80	41	35	35	3	v2.3.0	2026-10-26	false
 microsoft/fast	2026-11-20	9690	642	80	23	32	@microsoft/fast-build_v0.22.0	2026-11-19	false
 microsoft/jpeg2000_rs	2026-11-20	3	3	10	1	0	-	-	false
 microsoft/SecureDesignStudio	2026-11-20	9	1	0	1	0	-	-	false
@@ -58,4 +59,3 @@ microsoft/playwright	2026-11-20	100674	6940	34	20	0	v1.65.1	2026-11-13	false
 microsoft/azurelinux	2026-11-20	5381	718	27	288	31	3.0.20261116-3.0	2026-11-17	false
 microsoft/simplechat	2026-11-20	158	118	343	14	10	v0.261.065	2026-11-17	false
 microsoft/vs-streamjsonrpc	2026-11-20	945	180	28	11	35	v2.26.150	2026-10-19	false
-microsoft/typescript-skills	2026-11-20	4	1	0	4	0	-	-	false
