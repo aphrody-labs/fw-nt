@@ -5,8 +5,8 @@ compatibility), rebuilt with native toolchains only: C++ on MSVC, modern C, asse
 where isolation pays. Design model: [Asterinas](https://github.com/asterinas/asterinas) framekernel: a small audited unsafe core
 (OSTD) and every other kernel service in safe code on top of it.
 
-Every component starts from a fork in `forks.toml` (`third_party/<name>`); fw-nt code replaces a layer only with a working,
-tested unit, LiberNT first rules apply (provide every symbol of the new implementation, then drop the old files).
+Every component starts from a fork in `forks.toml` (`third_party/<name>`). fw-nt code replaces a layer only with a working, tested
+unit, following LiberNT's rule: provide every symbol of the new implementation, then drop the old files.
 
 ## Layers
 
@@ -25,14 +25,11 @@ tested unit, LiberNT first rules apply (provide every symbol of the new implemen
 | UI framework and app model | C++ (WinUI 3), C# | microsoft-ui-xaml, WindowsAppSDK | desktop shell base |
 | Design system | TypeScript, React, React Native | fluentui, fluentui-system-icons, react-native-windows | Fluent everywhere: shell, web, RN apps |
 | Managed runtime | C# .NET 10 LTS + 11, NativeAOT | dotnet (VMR), node-api-dotnet | system services, PowerShell, JS bridge |
-| Shells and terminal | C#, Rust, C++ | PowerShell, niubash, rubash, ruline, WinuxCmd, niu-git, intelligent-terminal | console host with ACP agent panes |
+| Shells and terminal | C#, Rust, C++ | PowerShell, niubash, rubash, ruline, WinuxCmd, niu-git, intelligent-terminal, rio | console host with ACP agent panes; rio is the GPU terminal beside it |
 | Agents and remote | TypeScript (Bun), Rust | agent-desktop, IronRDP | computer use and RDP for agents |
 | Virtualization and containers | Rust | openvmm, kiri | Hyper-V class VMM/paravisor, container runtime |
 | Sandboxed extensions | Rust/C/C++ to `wasm32-wasip2` | wgpu/dawn (WebGPU) | WebAssembly components for untrusted extensions |
 
 ## Tracking
-- `bun tools/sync.ts --ensure`: forks exist (created, unarchived), submodules present, forks fast-forwarded, gitlinks bumped.
-- `bun tools/watch.ts`: issues, PRs, discussions, forks, releases of every upstream and of the 60 most recently pushed Microsoft
-  repositories into `docs/activity/` (newest items in `latest.md`).
-- `bun tools/toolchain.ts`: MSVC, Windows SDK, .NET 10/11, Rust and its NT/UEFI/wasm targets, Bun, clang, CMake, Ninja.
-- The workflow `.github/workflows/sync.yml` runs sync and watch every 6 hours and commits to `main`.
+
+Sync, patch queue, activity watch and toolchain check: [AGENTS.md](../AGENTS.md) (`just sync`, `just watch`, `just doctor`).

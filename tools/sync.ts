@@ -3,7 +3,8 @@
 // third_party/<name> at the fork's branch head read with `git ls-remote` (no clone, so CI stays light even for dotnet).
 // A fork with `patched` carries a patch queue (tools/patchq.ts): its generated branch `patched` is `branch` plus the series
 // of the fork's `patches` branch, rebuilt after the mirror step and pinned by the gitlink instead of `branch`.
-// Usage: bun tools/sync.ts [--check]   --check: report only, exit 1 when a fork or a gitlink is behind.
+// Usage: bun tools/sync.ts [--check] [--ensure]   --check: report only, exit 1 when a fork or a gitlink is behind.
+//   --ensure: create or unarchive the forks of forks.toml and add their shallow submodules first.
 import { readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { buildPatched, dispose, pushPatched } from "./patchq.ts";
