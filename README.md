@@ -1,3 +1,5 @@
+> **Moved.** This repository has been consolidated into [aphrody-labs/fw](https://github.com/aphrody-labs/fw/tree/main/fw-nt) (\$(System.Collections.Hashtable.sub)\ — Windows NT fork manifest, patch queue, and toolchain tooling) and archived. All active development continues in \phrody-labs/fw\.
+
 # fw-nt
 
 The Windows NT layer of the fw stack: the forks it builds on, pinned as shallow submodules, and the tools that keep them current.
